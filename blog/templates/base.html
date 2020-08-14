@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG-POST</title>
+</head>
+
+<body>
+    <a href="{% url 'home' %}">
+        <h1>My Blog again 🙄</h1>
+    </a>
+
+    
+    {% if user.is_authenticated %}
+    <a href="{% url 'new_post' %}"><button>New</button></a>
+    {% endif %}
+        
+   
+
+
+    {% if user.is_authenticated %}
+        <p>Hi {{ user.username}} </p>
+        <p><a href="{% url 'logout' %}">Log out</a></p>
+    
+    {% endif %}
+
+
+    {% block content %}
+
+    {% endblock content %}
+</body>
+
+</html>
