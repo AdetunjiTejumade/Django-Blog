@@ -12,5 +12,10 @@
     <a href="{% url 'post_delete' post.pk %}"><button>Delete</button></a>
     <a href="{% url 'post_edit' post.pk %}"><button>Edit</button></a>
 {% endif %}
+
+{% for comment in blog.comments.all %}
+<p><span>{{ comment.author }} &middot;</span> {{ comment }}</p>
+{% endfor %}
+
 {% endfor %}
 {% endblock content %}
